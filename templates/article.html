@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="post">
+    <header class="post-header">
+        <h1>{{ post.title }}</h1>
+        <div class="meta">
+            <span class="date">{{ post.date }}</span>
+        </div>
+    </header>
+
+    <div class="post-content">
+        {{ post.content | safe }}
+    </div>
+
+    <div class="cta-box">
+        <h3>🚀 Envie d'aller plus loin ?</h3>
+        <p>Découvrez les stratégies complètes dans "Le Livre Noir des Secrets du Marketing".</p>
+        <a href="https://www.marketingflix.fr/livre-noir-offert?sa=sa0083394361eb6eae9b3b924c7163a1c4071fe27e"
+            class="btn btn-primary">Obtenir le Livre Gratuitement</a>
+    </div>
+</article>
+{% endblock %}

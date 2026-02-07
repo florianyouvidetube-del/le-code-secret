@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <h1>Décodez le succès.</h1>
+    <p>Les stratégies marketing que les "gourous" ne veulent pas que vous sachiez.</p>
+    <a href="#articles" class="btn btn-secondary">Découvrir les Secrets</a>
+</section>
+
+<section id="articles" class="articles-list">
+    <h2>Derniers Articles</h2>
+    <div class="grid">
+        {% for post in posts %}
+        <div class="card">
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            <p>{{ post.summary }}</p>
+            <span class="date">{{ post.date }}</span>
+            <a href="{{ post.url }}" class="read-more">Lire la suite &rarr;</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -87,3 +87,9 @@ Au lieu d'essayer de deviner, **analysez son tunnel**.
 Commandez le livre (c'est gratuit). Regardez comment il vous vend la suite. Prenez des notes. Copiez.
 
 [Cliquez ici pour entrer dans le tunnel du Livre Noir (et recevoir le livre)](https://www.marketingflix.fr/livre-noir-offert?sa=sa0083394361eb6eae9b3b924c7163a1c4071fe27e)
+
+---
+
+### Continuer votre lecture
+*   [Le Guide Ultime du Copywriting](guide-copywriting.html)
+*   [Top 7 des Meilleurs Livres de Marketing](top-livres-marketing.html)

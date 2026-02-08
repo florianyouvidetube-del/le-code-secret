@@ -106,3 +106,9 @@ C'est littéralement ma bible. Et le plus fou ? L'auteur l'offre gratuitement (v
 C'est le meilleur investissement (quelques euros) que vous ferez cette année.
 
 [>> Cliquez ici pour commander votre exemplaire du Livre Noir avant la rupture de stock](https://www.marketingflix.fr/livre-noir-offert?sa=sa0083394361eb6eae9b3b924c7163a1c4071fe27e)
+
+---
+
+### Continuer votre lecture
+*   [Comment Créer un Tunnel de Vente Rentable](guide-tunnel-vente.html)
+*   [Top 7 des Meilleurs Livres de Marketing](top-livres-marketing.html)

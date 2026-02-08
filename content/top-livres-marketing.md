@@ -57,3 +57,9 @@ C'est un recueil de stratégies "interdites" et de raccourcis psychologiques.
 À ce prix-là (gratuit), c'est criminel de s'en priver.
 
 [Recevoir mon exemplaire du Livre Noir maintenant](https://www.marketingflix.fr/livre-noir-offert?sa=sa0083394361eb6eae9b3b924c7163a1c4071fe27e)
+
+---
+
+### Continuer votre lecture
+*   [Le Guide Ultime du Copywriting](guide-copywriting.html)
+*   [Comment Créer un Tunnel de Vente Rentable](guide-tunnel-vente.html)

@@ -90,7 +90,20 @@ def build_site():
     with open(os.path.join(OUTPUT_DIR, "robots.txt"), 'w', encoding='utf-8') as f:
         f.write(robots_content)
 
-    print(f"Site built successfully! {len(posts)} articles, sitemap.xml and robots.txt generated.")
+    # --- Feature: Generate search.json ---
+    import json
+    search_index = []
+    for post in posts:
+        search_index.append({
+            'title': post['title'],
+            'url': post['url'],
+            'summary': post['summary']
+        })
+    
+    with open(os.path.join(OUTPUT_DIR, "search.json"), 'w', encoding='utf-8') as f:
+        json.dump(search_index, f, ensure_ascii=False)
+
+    print(f"Site built successfully! {len(posts)} articles, sitemap.xml, robots.txt and search.json generated.")
 
 if __name__ == "__main__":
     build_site()

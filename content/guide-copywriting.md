@@ -2,6 +2,8 @@ Title: Le Guide Ultime du Copywriting : Devenez un Maître de la Persuasion (202
 Date: 2025-02-13
 Summary: Ce n'est pas "juste des mots". C'est l'art d'imprimer de l'argent. Découvrez le guide complet pour écrire des textes qui vendent, même si vous partez de zéro.
 
+![Psychologie du Copywriting](static/img/brain.png)
+
 ## Introduction : L'art invisible qui dirige le monde
 
 Regardez autour de vous. Tout ce que vous avez acheté, vous l'avez acheté parce que quelqu'un a écrit les bons mots.

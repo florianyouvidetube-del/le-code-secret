@@ -2,8 +2,16 @@
 
 {% block content %}
 <section class="hero">
+    <img src="static/img/hero.png" alt="Cyberpunk Marketing" class="featured-image"
+        style="max-height: 400px; object-fit: cover; opacity: 0.8;">
     <h1>Décodez le succès.</h1>
     <p>Les stratégies marketing que les "gourous" ne veulent pas que vous sachiez.</p>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Rechercher un secret (ex: Copywriting, Tunnel)...">
+        <ul id="search-results"></ul>
+    </div>
+
     <a href="#articles" class="btn btn-secondary">Découvrir les Secrets</a>
 </section>
 

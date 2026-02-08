@@ -9,7 +9,7 @@ CONTENT_DIR = 'content'
 OUTPUT_DIR = 'docs'
 TEMPLATE_DIR = 'templates'
 STATIC_DIR = 'static'
-SITE_URL = 'https://floriandesavigny.github.io/ghost-lunar' # Update with actual URL later
+SITE_URL = 'https://florianyouvidetube-del.github.io/le-code-secret'
 
 def build_site():
     # Setup Jinja2 environment
@@ -69,7 +69,28 @@ def build_site():
     with open(os.path.join(OUTPUT_DIR, "index.html"), 'w', encoding='utf-8') as f:
         f.write(index_html)
 
-    print(f"Site built successfully! {len(posts)} articles generated.")
+    # --- SEO: Generate sitemap.xml ---
+    sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    # Add homepage
+    sitemap_content += f'  <url>\n    <loc>{SITE_URL}/</loc>\n    <lastmod>{datetime.now().strftime("%Y-%m-%d")}</lastmod>\n    <priority>1.0</priority>\n  </url>\n'
+    
+    # Add posts
+    for post in posts:
+        sitemap_content += f'  <url>\n    <loc>{SITE_URL}/{post["url"]}</loc>\n    <lastmod>{post["date"]}</lastmod>\n    <priority>0.8</priority>\n  </url>\n'
+    
+    sitemap_content += '</urlset>'
+    
+    with open(os.path.join(OUTPUT_DIR, "sitemap.xml"), 'w', encoding='utf-8') as f:
+        f.write(sitemap_content)
+
+    # --- SEO: Generate robots.txt ---
+    robots_content = f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml"
+    with open(os.path.join(OUTPUT_DIR, "robots.txt"), 'w', encoding='utf-8') as f:
+        f.write(robots_content)
+
+    print(f"Site built successfully! {len(posts)} articles, sitemap.xml and robots.txt generated.")
 
 if __name__ == "__main__":
     build_site()

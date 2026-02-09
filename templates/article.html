@@ -1,23 +1,51 @@
 {% extends "base.html" %}
 
 {% block content %}
-<article class="post">
-    <header class="post-header">
-        <h1>{{ post.title }}</h1>
-        <div class="meta">
-            <span class="date">{{ post.date }}</span>
+<div class="article-container">
+    <div class="main-column">
+        <article class="post">
+            <header class="post-header">
+                <h1>{{ post.title }}</h1>
+                <div class="meta">
+                    <span class="date">{{ post.date }}</span>
+                </div>
+            </header>
+            <div class="post-content">
+                {{ post.content }}
+            </div>
+
+            <div class="cta-box">
+                <h3>⚠️ Ce Secret ne restera pas en ligne longtemps.</h3>
+                <p>Pour aller plus loin et découvrir les techniques censurées, récupérez le Livre Noir.</p>
+                <a href="https://www.marketingflix.fr/livre-noir-offert?sa=sa0083394361eb6eae9b3b924c7163a1c4071fe27e"
+                    class="btn btn-primary">Obtenir le Livre Noir (Gratuit)</a>
+            </div>
+        </article>
+    </div>
+
+    <aside class="sidebar">
+        <div class="sidebar-widget">
+            <h3>Derniers Secrets</h3>
+            <ul class="recent-posts-list">
+                {% for p in posts[:5] %}
+                {% if p.url != post.url %}
+                <li>
+                    <a href="{{ p.url }}">
+                        <span class="recent-title">{{ p.title }}</span>
+                        <span class="recent-date">{{ p.date }}</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
         </div>
-    </header>
 
-    <div class="post-content">
-        {{ post.content | safe }}
-    </div>
-
-    <div class="cta-box">
-        <h3>🚀 Envie d'aller plus loin ?</h3>
-        <p>Découvrez les stratégies complètes dans "Le Livre Noir des Secrets du Marketing".</p>
-        <a href="https://www.marketingflix.fr/livre-noir-offert?sa=sa0083394361eb6eae9b3b924c7163a1c4071fe27e"
-            class="btn btn-primary">Obtenir le Livre Gratuitement</a>
-    </div>
-</article>
+        <div class="sidebar-widget sticky-widget">
+            <h3>Le Graal du Marketing</h3>
+            <p>Le livre que Facebook ne veut pas que vous lisiez.</p>
+            <a href="https://www.marketingflix.fr/livre-noir-offert?sa=sa0083394361eb6eae9b3b924c7163a1c4071fe27e"
+                class="btn btn-secondary btn-sm">Récupérer sa copie</a>
+        </div>
+    </aside>
+</div>
 {% endblock %}

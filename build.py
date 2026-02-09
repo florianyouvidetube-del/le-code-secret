@@ -56,11 +56,6 @@ def build_site():
             }
             posts.append(post_data)
 
-            # Render article page
-            output_html = article_template.render(post=post_data, site_title="Le Code Secret")
-            with open(os.path.join(OUTPUT_DIR, f"{slug}.html"), 'w', encoding='utf-8') as f:
-                f.write(output_html)
-
     # Sort posts by date (newest first)
     posts.sort(key=lambda x: x['date'], reverse=True)
 
@@ -92,6 +87,21 @@ def build_site():
 
     # --- Feature: Generate search.json ---
     import json
+    # Render articles
+    for post in posts:
+        # Pass all posts to the template for the sidebar, excluding the current one if needed logic
+        html_content = article_template.render(
+            post=post, 
+            posts=posts, # Add this line
+            page_title=post['title'], 
+            page_description=post['summary'],
+            site_title="Le Code Secret"
+        )
+        
+        output_file = os.path.join(OUTPUT_DIR, post['url'])
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(html_content)
+    
     search_index = []
     for post in posts:
         search_index.append({

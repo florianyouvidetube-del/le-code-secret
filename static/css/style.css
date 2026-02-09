@@ -292,8 +292,8 @@ main {
 /* --- Sticky Article Title (Sub-header) --- */
 .sticky-title {
     position: fixed;
-    top: 50px;
-    /* Aligned below main header */
+    top: 65px;
+    /* Pushed down to clear the header */
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.95);
@@ -323,16 +323,21 @@ main {
     /* Softer color than main header */
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.85rem !important;
+    /* Force small size */
     /* Much smaller font size */
     letter-spacing: 0.5px;
+    height: 30px;
+    /* Constrain height */
+    overflow: hidden;
 }
 
 .sticky-content span {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 80%;
+    max-width: 70%;
+    display: block;
 }
 
 .btn-top {

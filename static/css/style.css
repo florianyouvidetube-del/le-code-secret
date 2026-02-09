@@ -329,9 +329,97 @@ article img {
     box-shadow: var(--neon-glow);
     margin: 2rem 0;
     display: block;
+    position: relative;
+    z-index: 1;
+    /* Ensure images stay below header */
 }
 
-/* Search Bar Design */
+/* Homepage Articles Styling */
+.articles-list {
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+.articles-list h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Featured / Standard Card */
+.card {
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 65, 0.15);
+    border-color: var(--accent-color);
+    background: rgba(20, 20, 20, 0.8);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    line-height: 1.3;
+}
+
+.card h3 a {
+    color: #fff;
+}
+
+.card h3 a:hover {
+    color: var(--accent-color);
+}
+
+.card p {
+    color: #bbb;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card .date {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.card .read-more {
+    display: inline-block;
+    color: var(--accent-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: auto;
+}
+
+.card .read-more:hover {
+    text-decoration: underline;
+    text-shadow: 0 0 8px var(--accent-color);
+}
+
 .search-container {
     margin: 3rem auto;
     max-width: 600px;

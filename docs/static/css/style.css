@@ -67,14 +67,28 @@ h1 {
 }
 
 /* --- New Header Design --- */
+/* --- New Header Design --- */
 header {
-    background: rgba(5, 5, 5, 0.9);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--glass-border);
+    background: rgba(5, 5, 5, 0.5);
+    /* More transparent for glass effect */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 9999;
+    /* Ensure it stays on top */
+    padding: 1.5rem 0;
+    /* Larger initial padding */
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+header.scrolled {
     padding: 0.8rem 0;
+    /* Miniaturized padding */
+    background: rgba(0, 0, 0, 0.85);
+    /* Darker when scrolled for readability */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .header-container {
@@ -88,16 +102,23 @@ header {
 
 .logo a {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
+    /* Larger initial logo */
     font-weight: 700;
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
     color: #fff;
     text-decoration: none;
+    transition: font-size 0.4s ease;
+}
+
+header.scrolled .logo a {
+    font-size: 1.3rem;
+    /* Miniaturized logo */
 }
 
 .logo .highlight {
     color: var(--accent-color);
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+    text-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
 }
 
 nav ul {

@@ -420,6 +420,30 @@ article img {
     text-shadow: 0 0 8px var(--accent-color);
 }
 
+/* Featured Card Styling */
+.featured-card {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    background: rgba(10, 20, 10, 0.7);
+    grid-column: 1 / -1;
+    /* Spans full width of the grid */
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-card::before {
+    content: "À LA UNE";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--accent-color);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.3rem 0.8rem;
+    border-bottom-left-radius: 8px;
+}
+
 .search-container {
     margin: 3rem auto;
     max-width: 600px;

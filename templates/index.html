@@ -15,17 +15,44 @@
     <a href="#articles" class="btn btn-secondary">Découvrir les Secrets</a>
 </section>
 
-<section id="articles" class="articles-list">
-    <h2>Derniers Articles</h2>
-    <div class="grid">
-        {% for post in posts %}
-        <div class="card">
-            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-            <p>{{ post.summary }}</p>
-            <span class="date">{{ post.date }}</span>
-            <a href="{{ post.url }}" class="read-more">Lire la suite &rarr;</a>
+<div class="article-container" id="articles">
+    <div class="main-column">
+        <h2>Dossiers Confidentiels</h2>
+        <div class="grid">
+            {% for post in posts %}
+            <div class="card {% if loop.index0 == 0 %}featured-card{% endif %}">
+                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                <p>{{ post.summary }}</p>
+                <div class="card-meta">
+                    <span class="date">{{ post.date }}</span>
+                    <a href="{{ post.url }}" class="read-more">Lire l'analyse &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</section>
+
+    <aside class="sidebar">
+        <div class="sidebar-widget sticky-widget">
+            <h3>Le Livre Noir</h3>
+            <p>La méthode interdite pour vendre n'importe quoi à n'importe qui.</p>
+            <a href="https://www.marketingflix.fr/livre-noir-offert?sa=sa0083394361eb6eae9b3b924c7163a1c4071fe27e"
+                class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">Obtenir le Livre</a>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3>Derniers Secrets</h3>
+            <ul class="recent-posts-list">
+                {% for p in posts[:5] %}
+                <li>
+                    <a href="{{ p.url }}">
+                        <span class="recent-title">{{ p.title }}</span>
+                        <span class="recent-date">{{ p.date }}</span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </aside>
+</div>
 {% endblock %}

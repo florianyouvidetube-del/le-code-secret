@@ -12,7 +12,29 @@
 
 body {
     background-image: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
+    color: var(--text-color);
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+    line-height: 1.6;
     overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--accent-color);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px var(--accent-color);
 }
 
 /* Glitch Effect for Headings */

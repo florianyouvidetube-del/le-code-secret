@@ -29,10 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
             searchResults.appendChild(li);
         });
     });
-    // Scroll Effect for Header
+    // --- Header Scroll Effect (Robust) ---
     const header = document.querySelector('header');
 
     function updateHeader() {
+        // Use a threshold to snap state
         if (window.pageYOffset > 50) {
             header.classList.add('scrolled');
         } else {
@@ -40,7 +41,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    window.addEventListener('scroll', updateHeader);
-    // Initial check in case of refresh
-    updateHeader();
+    // Use passive listener for performance
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader(); // Initial check
+
+    // --- Sticky Article Title Logic ---
+    const stickyTitle = document.getElementById('sticky-title');
+    const mainTitle = document.querySelector('.post-header h1');
+
+    if (stickyTitle && mainTitle) {
+        // Show sticky title when main title scrolls out of view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting && window.pageYOffset > 100) {
+                    // Main title is gone and we scrolled down -> Show Sticky
+                    stickyTitle.classList.add('visible');
+                } else {
+                    // Main title is back or we are at top -> Hide Sticky
+                    stickyTitle.classList.remove('visible');
+                }
+            });
+        }, {
+            rootMargin: "-100px 0px 0px 0px" // Trigger when title hits top area
+        });
+
+        observer.observe(mainTitle);
+    }
 });

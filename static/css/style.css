@@ -270,6 +270,8 @@ main {
     position: relative !important;
     top: auto !important;
     margin-bottom: 2rem;
+    z-index: 1;
+    /* Explicit low z-index */
 }
 
 .post-header h1 {
@@ -338,6 +340,71 @@ main {
     text-overflow: ellipsis;
     max-width: 70%;
     display: block;
+}
+
+/* --- Sticky Mini Title (Sidebar Version) --- */
+.sticky-mini-title {
+    position: fixed;
+    /* Fixed to viewport to stay in place */
+    top: 80px;
+    /* Under the header */
+    width: 300px;
+    /* Match sidebar width */
+    transform: translateX(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 90;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    /* Hidden strictly initially */
+}
+
+/* When sidebar grid is active, we need to know the left position. 
+   Actually, 'position: sticky' inside the sidebar is easier but it pushes other elements.
+   The user wants it 'above' the other widgets effectively or overlaying?
+   "au dessus des derines sescret" implies it sits at the top of the stack visually.
+   Let's try position: sticky within the flex container of sidebar, but inserted at the top.
+*/
+
+.sidebar {
+    position: relative;
+    /* Context for absolute if needed */
+}
+
+/* Re-thinking: Sticky inside flex sidebar works if we order it first. */
+.sticky-mini-title.visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+    display: block;
+    position: sticky;
+    top: 80px;
+    margin-bottom: 2rem;
+}
+
+.sticky-mini-title h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    border: none;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #fff;
+}
+
+.sticky-mini-title .btn-top {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    padding: 0;
 }
 
 .btn-top {

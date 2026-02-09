@@ -1,12 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div id="sticky-title" class="sticky-title">
-    <div class="sticky-content">
-        <span>{{ post.title }}</span>
-        <a href="#top" class="btn-top">↑</a>
-    </div>
-</div>
 
 <div class="article-container">
     <div class="main-column">
@@ -31,6 +25,12 @@
     </div>
 
     <aside class="sidebar">
+        <!-- Sticky Mini Title (Hidden by default, appears on scroll) -->
+        <div id="sticky-title" class="sidebar-widget sticky-mini-title">
+            <h3>{{ post.title }}</h3>
+            <a href="#top" class="btn-top">Haut de page ↑</a>
+        </div>
+
         <div class="sidebar-widget">
             <h3>Derniers Secrets</h3>
             <ul class="recent-posts-list">

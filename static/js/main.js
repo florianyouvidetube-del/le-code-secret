@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader(); // Initial check
 
-    // --- Sticky Article Title Logic ---
+    // --- Sticky Article Title (Sidebar Logic) ---
     const stickyTitle = document.getElementById('sticky-title');
     const mainTitle = document.querySelector('.post-header h1');
 
@@ -53,16 +53,16 @@ document.addEventListener('DOMContentLoaded', function () {
         // Show sticky title when main title scrolls out of view
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (!entry.isIntersecting && window.pageYOffset > 100) {
-                    // Main title is gone and we scrolled down -> Show Sticky
+                if (!entry.isIntersecting && window.pageYOffset > 200) {
+                    // Main title is gone -> trigger sidebar sticky
                     stickyTitle.classList.add('visible');
                 } else {
-                    // Main title is back or we are at top -> Hide Sticky
+                    // Main title is back -> hide sidebar sticky
                     stickyTitle.classList.remove('visible');
                 }
             });
         }, {
-            rootMargin: "-100px 0px 0px 0px" // Trigger when title hits top area
+            rootMargin: "-150px 0px 0px 0px" // Trigger slightly later for better transition
         });
 
         observer.observe(mainTitle);

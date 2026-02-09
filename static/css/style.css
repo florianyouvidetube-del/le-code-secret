@@ -69,26 +69,27 @@ h1 {
 /* --- New Header Design --- */
 /* --- New Header Design --- */
 header {
-    background: rgba(5, 5, 5, 0.5);
-    /* More transparent for glass effect */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(5, 5, 5, 0.05);
+    /* Almost transparent at top */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     position: sticky;
     top: 0;
-    z-index: 9999;
-    /* Ensure it stays on top */
-    padding: 1.5rem 0;
-    /* Larger initial padding */
+    z-index: 100000;
+    /* Maximum z-index to stay on top */
+    padding: 2rem 0;
+    /* Large padding initially */
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 header.scrolled {
     padding: 0.8rem 0;
     /* Miniaturized padding */
-    background: rgba(0, 0, 0, 0.85);
-    /* Darker when scrolled for readability */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: #000000;
+    /* Solid black when scrolled to hide content behind */
+    border-bottom: 1px solid var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 255, 65, 0.1);
 }
 
 .header-container {
@@ -102,23 +103,32 @@ header.scrolled {
 
 .logo a {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.8rem;
-    /* Larger initial logo */
-    font-weight: 700;
-    letter-spacing: -1px;
+    font-size: 2.5rem;
+    /* Massive initial logo */
+    font-weight: 900;
+    letter-spacing: -2px;
     color: #fff;
     text-decoration: none;
-    transition: font-size 0.4s ease;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
 }
 
 header.scrolled .logo a {
-    font-size: 1.3rem;
-    /* Miniaturized logo */
+    font-size: 1.2rem;
+    /* Tiny logo when scrolled */
+    letter-spacing: 0px;
+    color: var(--accent-color);
 }
 
 .logo .highlight {
     color: var(--accent-color);
-    text-shadow: 0 0 15px rgba(0, 255, 65, 0.6);
+    text-shadow: 0 0 20px rgba(0, 255, 65, 0.8);
+    transition: all 0.4s;
+}
+
+header.scrolled .logo .highlight {
+    text-shadow: none;
 }
 
 nav ul {

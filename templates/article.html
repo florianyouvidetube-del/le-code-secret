@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div id="sticky-title" class="sticky-title">
+    <div class="sticky-content">
+        <span>{{ post.title }}</span>
+        <a href="#top" class="btn-top">↑</a>
+    </div>
+</div>
+
 <div class="article-container">
     <div class="main-column">
         <article class="post">

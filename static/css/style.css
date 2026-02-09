@@ -265,19 +265,42 @@ main {
     border-color: #fff;
 }
 
+/* Ensure post-header is NOT sticky */
+.post-header {
+    position: relative !important;
+    top: auto !important;
+    margin-bottom: 2rem;
+}
+
+.post-header h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, #fff, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.meta {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 /* --- Sticky Article Title (Sub-header) --- */
 .sticky-title {
     position: fixed;
     top: 50px;
-    /* Exact height of the scrolled main header */
+    /* Aligned below main header */
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.95);
     border-bottom: 1px solid var(--accent-color);
     z-index: 99990;
-    /* Below main header (100000) */
+    /* Below main header */
     padding: 0.5rem 0;
-    /* Reduced padding for compact look */
     transform: translateY(-100%);
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);

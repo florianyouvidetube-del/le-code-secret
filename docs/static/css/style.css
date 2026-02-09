@@ -138,6 +138,13 @@ nav a:hover {
 }
 
 /* --- Article Layout (Grid) --- */
+main {
+    max-width: 100%;
+    /* Changed from 800px to allow grid to control width */
+    margin: 0;
+    padding: 0;
+}
+
 .article-container {
     max-width: 1100px;
     margin: 3rem auto;
